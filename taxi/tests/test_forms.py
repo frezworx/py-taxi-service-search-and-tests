@@ -34,8 +34,8 @@ class SearchFormTest(TestCase):
             manufacturer=Manufacturer.objects.create(name="Toyota"),
         )
 
-        cls.car1.drivers.add(cls.driver1, cls.driver2)
-        cls.car2.drivers.add(cls.driver3)
+        cls.car1.drivers.set([cls.driver1, cls.driver2])
+        cls.car2.drivers.set([cls.driver3])
 
     def test_valid_driver_search_query(self):
         form = DriverSearchForm({"username": "BigBob"})
